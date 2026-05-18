@@ -1,0 +1,123 @@
+{
+  "_comment": "Canonical MCP server spec for the 12 Taiwan e-commerce MCPs in this plugin. Used by Claude Code / Gemini directly via plugin manifests; copy-paste into ~/.cursor/mcp.json, ~/.codex/mcp.json, or your harness-specific MCP config to enable manually. Requires `uv` installed (https://docs.astral.sh/uv/) for `uvx` to work.",
+  "mcpServers": {
+    "ecpay": {
+      "command": "uvx",
+      "args": ["--from", "git+https://github.com/asgard-ai-platform/mcp-ecpay@main", "mcp-ecpay"],
+      "env": {
+        "ECPAY_ENV": "${ECPAY_ENV:-stage}",
+        "ECPAY_MERCHANT_ID": "${ECPAY_MERCHANT_ID}",
+        "ECPAY_HASH_KEY": "${ECPAY_HASH_KEY}",
+        "ECPAY_HASH_IV": "${ECPAY_HASH_IV}",
+        "ECPAY_PLATFORM_ID": "${ECPAY_PLATFORM_ID}"
+      }
+    },
+    "ecpay-logistics": {
+      "command": "uvx",
+      "args": ["--from", "git+https://github.com/asgard-ai-platform/mcp-ecpay-logistics@main", "mcp-ecpay-logistics"],
+      "env": {
+        "ECPAY_ENV": "${ECPAY_ENV:-stage}",
+        "ECPAY_MERCHANT_ID": "${ECPAY_MERCHANT_ID}",
+        "ECPAY_HASH_KEY": "${ECPAY_HASH_KEY}",
+        "ECPAY_HASH_IV": "${ECPAY_HASH_IV}"
+      }
+    },
+    "newebpay": {
+      "command": "uvx",
+      "args": ["--from", "git+https://github.com/asgard-ai-platform/mcp-newebpay@main", "mcp-newebpay"],
+      "env": {
+        "NEWEBPAY_ENV": "${NEWEBPAY_ENV:-test}",
+        "NEWEBPAY_NDNF_MERCHANT_ID": "${NEWEBPAY_NDNF_MERCHANT_ID}",
+        "NEWEBPAY_NDNF_HASH_KEY": "${NEWEBPAY_NDNF_HASH_KEY}",
+        "NEWEBPAY_NDNF_HASH_IV": "${NEWEBPAY_NDNF_HASH_IV}",
+        "NEWEBPAY_NDNP_MERCHANT_ID": "${NEWEBPAY_NDNP_MERCHANT_ID}",
+        "NEWEBPAY_NDNP_HASH_KEY": "${NEWEBPAY_NDNP_HASH_KEY}",
+        "NEWEBPAY_NDNP_HASH_IV": "${NEWEBPAY_NDNP_HASH_IV}"
+      }
+    },
+    "kerry-tj": {
+      "command": "uvx",
+      "args": ["--from", "git+https://github.com/asgard-ai-platform/mcp-kerry-tj@main", "mcp-kerry-tj"],
+      "env": {
+        "KERRY_TJ_USERNAME": "${KERRY_TJ_USERNAME}",
+        "KERRY_TJ_PASSWORD": "${KERRY_TJ_PASSWORD}"
+      }
+    },
+    "hct-logistics": {
+      "command": "uvx",
+      "args": ["--from", "git+https://github.com/asgard-ai-platform/mcp-hct-logistics@main", "mcp-hct-logistics"],
+      "env": {
+        "HCT_COMPANY": "${HCT_COMPANY}",
+        "HCT_PASSWORD": "${HCT_PASSWORD}"
+      }
+    },
+    "sf-express": {
+      "command": "uvx",
+      "args": ["--from", "git+https://github.com/asgard-ai-platform/mcp-sf-express@main", "mcp-sf-express"],
+      "env": {
+        "SF_ENV": "${SF_ENV:-sandbox}",
+        "SF_PARTNER_ID": "${SF_PARTNER_ID}",
+        "SF_SECRET": "${SF_SECRET}"
+      }
+    },
+    "shopline": {
+      "command": "uvx",
+      "args": ["--from", "git+https://github.com/asgard-ai-platform/mcp-shopline@main", "mcp-shopline"],
+      "env": {
+        "SHOPLINE_API_TOKEN": "${SHOPLINE_API_TOKEN}"
+      }
+    },
+    "91app": {
+      "command": "uvx",
+      "args": ["--from", "git+https://github.com/asgard-ai-platform/mcp-91app@main", "mcp-91app"],
+      "env": {
+        "APP_91APP_API_KEY": "${APP_91APP_API_KEY}",
+        "APP_91APP_BASE_URL": "${APP_91APP_BASE_URL:-https://api.91app.com}",
+        "APP_91APP_SHOP_ID": "${APP_91APP_SHOP_ID}",
+        "APP_91APP_N1_API_KEY": "${APP_91APP_N1_API_KEY}",
+        "APP_91APP_IMS_BASE_URL": "${APP_91APP_IMS_BASE_URL:-https://ims-api.91app.com}",
+        "APP_91APP_HMAC_SECRET": "${APP_91APP_HMAC_SECRET}",
+        "APP_91APP_PAYMENTS_BASE_URL": "${APP_91APP_PAYMENTS_BASE_URL:-https://payments-api.91app.com}",
+        "APP_91APP_NY_API_TOKEN": "${APP_91APP_NY_API_TOKEN}",
+        "APP_91APP_MEMBER_BASE_URL": "${APP_91APP_MEMBER_BASE_URL:-https://member-api.91app.com}"
+      }
+    },
+    "cyberbiz": {
+      "command": "uvx",
+      "args": ["--from", "git+https://github.com/asgard-ai-platform/mcp-cyberbiz@main", "mcp-cyberbiz"],
+      "env": {
+        "CYBERBIZ_USERNAME": "${CYBERBIZ_USERNAME}",
+        "CYBERBIZ_SECRET": "${CYBERBIZ_SECRET}"
+      }
+    },
+    "buy123-vendor": {
+      "command": "uvx",
+      "args": ["--from", "git+https://github.com/asgard-ai-platform/mcp-buy123-vendor@main", "mcp-buy123-vendor"],
+      "env": {
+        "VENDOR_ID": "${BUY123_VENDOR_ID}",
+        "VENDOR_EMAIL": "${BUY123_VENDOR_EMAIL}",
+        "VENDOR_PASSWORD": "${BUY123_VENDOR_PASSWORD}"
+      }
+    },
+    "ezpay-einvoice": {
+      "command": "uvx",
+      "args": ["--from", "git+https://github.com/asgard-ai-platform/mcp-ezpay-einvoice@main", "mcp-ezpay-einvoice"],
+      "env": {
+        "EZPAY_MERCHANT_ID": "${EZPAY_MERCHANT_ID}",
+        "EZPAY_HASH_KEY": "${EZPAY_HASH_KEY}",
+        "EZPAY_HASH_IV": "${EZPAY_HASH_IV}",
+        "EZPAY_IS_PRODUCTION": "${EZPAY_IS_PRODUCTION:-false}"
+      }
+    },
+    "universalec-einvoice": {
+      "command": "uvx",
+      "args": ["--from", "git+https://github.com/asgard-ai-platform/mcp-universalec-e-invoice@main", "mcp-universalec-e-invoice"],
+      "env": {
+        "EINVOICE_BASE_URL": "${EINVOICE_BASE_URL:-https://epostw.einvoice.com.tw/GetInvoice.ashx}",
+        "EINVOICE_SELLER_ID": "${EINVOICE_SELLER_ID}",
+        "EINVOICE_POS_ID": "${EINVOICE_POS_ID}",
+        "EINVOICE_POS_SN": "${EINVOICE_POS_SN}"
+      }
+    }
+  }
+}

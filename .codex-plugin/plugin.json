@@ -1,0 +1,43 @@
+{
+  "name": "tw-ecommerce-majordomo",
+  "version": "0.1.0",
+  "description": "台灣電商總管：29 個 tw-ecom-* skills 與 12 個 asgard MCP servers，覆蓋金流、物流、DTC 平台、marketplace、電子發票、合規與營運。",
+  "author": {
+    "name": "Asgard AI Platform",
+    "url": "https://github.com/asgard-ai-platform"
+  },
+  "homepage": "https://github.com/asgard-ai-platform/tw-ecommerce-majordomo",
+  "repository": "https://github.com/asgard-ai-platform/tw-ecommerce-majordomo",
+  "license": "MIT",
+  "keywords": [
+    "taiwan",
+    "ecommerce",
+    "skills",
+    "mcp",
+    "ecpay",
+    "newebpay",
+    "shopline",
+    "91app",
+    "einvoice",
+    "logistics"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "TW E-commerce Majordomo",
+    "shortDescription": "台灣電商營運總管：金流、物流、DTC、發票、合規一次到位",
+    "longDescription": "把 ECPay、NewebPay、Shopline、91APP、Cyberbiz、ezPay／Universal EC 電子發票、Kerry TJ／HCT／SF 物流、ECPay logistics、buy123 vendor 等台灣電商 stack 的 MCP servers 串好，搭配 29 個 tw-ecom-* skills（payment / logistics / dtc / marketplace / invoice / compliance / operations / analytics）讓你的 coding agent 像一位有台灣電商經驗的營運總管。",
+    "developerName": "Asgard AI Platform",
+    "category": "Business",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "我要在 Shopline 開新店，幫我規劃金流、物流、發票串接",
+      "幫我把 ECPay 信用卡退款流程跑過一遍",
+      "用 RFM 分析最近 90 天的訂單，找出流失高風險客戶"
+    ],
+    "websiteURL": "https://github.com/asgard-ai-platform/tw-ecommerce-majordomo"
+  }
+}

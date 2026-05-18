@@ -1,0 +1,23 @@
+{
+  "name": "tw-ecommerce-majordomo",
+  "version": "0.1.0",
+  "description": "Taiwan e-commerce majordomo plugin: 29 tw-ecom-* skills + 12 MCP servers (payment, logistics, DTC, marketplace, e-invoice, compliance, operations, analytics).",
+  "type": "module",
+  "main": ".opencode/plugins/tw-ecommerce-majordomo.js",
+  "license": "MIT",
+  "author": "Asgard AI Platform",
+  "homepage": "https://github.com/asgard-ai-platform/tw-ecommerce-majordomo",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/asgard-ai-platform/tw-ecommerce-majordomo.git"
+  },
+  "keywords": [
+    "taiwan",
+    "ecommerce",
+    "mcp",
+    "opencode-plugin",
+    "claude-code-plugin",
+    "codex-plugin",
+    "skills"
+  ]
+}

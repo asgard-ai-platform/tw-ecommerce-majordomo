@@ -1,0 +1,26 @@
+{
+  "name": "tw-ecommerce-majordomo",
+  "displayName": "TW E-commerce Majordomo",
+  "description": "台灣電商總管：29 個 tw-ecom-* skills + 12 個 MCP servers（金流／物流／DTC／發票／合規／營運）。",
+  "version": "0.1.0",
+  "author": {
+    "name": "Asgard AI Platform",
+    "url": "https://github.com/asgard-ai-platform"
+  },
+  "homepage": "https://github.com/asgard-ai-platform/tw-ecommerce-majordomo",
+  "repository": "https://github.com/asgard-ai-platform/tw-ecommerce-majordomo",
+  "license": "MIT",
+  "keywords": [
+    "taiwan",
+    "ecommerce",
+    "skills",
+    "mcp",
+    "ecpay",
+    "newebpay",
+    "shopline",
+    "91app",
+    "einvoice",
+    "logistics"
+  ],
+  "skills": "./skills/"
+}
