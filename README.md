@@ -6,6 +6,14 @@
 
 支援 **Claude Code**、**Codex CLI / App**、**Cursor**、**Gemini CLI**、**OpenCode**、**Factory Droid**。
 
+## 為什麼叫 majordomo？
+
+中文裡的**掌櫃**和**總管**是有溫度的詞——指「替頭家管事的可靠人」。不是無關係的雇員 (manager)、也不是有距離的執行者 (agent)，而是把整間店、整個家當成自己事業在跑的內部人。
+
+英文要找到對等的 register，得進到古典詞彙才有那個分量。**Majordomo** 從拉丁文 _majordomus_（家中之首）來，原指中世紀貴族府邸或皇室的總管——後來延伸到任何「替主人統管全部事務的人」。
+
+我們想讓這個 plugin 之於你的 coding agent，就是 majordomo 之於電商頭家：金流、物流、發票、合規、客服這些瑣碎卻致命的事，一手張羅好，讓你能專心經營品牌跟顧客。
+
 ## 內容物
 
 - **29 個 `tw-ecom-*` skills**（[完整索引 →](docs/SKILLS-INDEX.md)）
