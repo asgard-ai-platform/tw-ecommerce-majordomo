@@ -32,6 +32,32 @@ const loadMcpServers = () => {
   return _mcpServers;
 };
 
+// Expand shell-style ${VAR} and ${VAR:-default} against process.env.
+const expandEnv = (value) => {
+  if (typeof value !== 'string') return value;
+  return value.replace(/\$\{([A-Za-z_][A-Za-z0-9_]*)(?::-([^}]*))?\}/g, (_, name, dflt) => {
+    const v = process.env[name];
+    return v !== undefined && v !== '' ? v : (dflt ?? '');
+  });
+};
+
+// Translate the Claude Code / Cursor MCP spec shape (mcp.json's
+// `{ command, args, env }`) into OpenCode's `McpLocalConfig` shape:
+// `{ type: "local", command: string[], environment, enabled }`.
+const toOpencodeMcp = (spec) => {
+  const cmd = [spec.command, ...(Array.isArray(spec.args) ? spec.args : [])];
+  const environment = {};
+  for (const [k, v] of Object.entries(spec.env || {})) {
+    environment[k] = expandEnv(v);
+  }
+  return {
+    type: 'local',
+    enabled: true,
+    command: cmd,
+    environment,
+  };
+};
+
 export const TwEcommerceMajordomoPlugin = async ({ client, directory }) => {
   return {
     config: async (config) => {
@@ -48,7 +74,7 @@ export const TwEcommerceMajordomoPlugin = async ({ client, directory }) => {
         config.mcp = config.mcp || {};
         for (const [name, spec] of Object.entries(servers)) {
           if (!config.mcp[name]) {
-            config.mcp[name] = spec;
+            config.mcp[name] = toOpencodeMcp(spec);
           }
         }
       }
