@@ -111,16 +111,27 @@ droid plugin install tw-ecommerce-majordomo@tw-ecommerce-majordomo
 安裝完成後，問你的 agent：
 
 ```
-我要在 Shopline 開新店，幫我規劃金流、物流、發票串接
+我要在 Shopline 開新店，幫我規劃金流（含信用卡 + ATM + 超商代碼 + 超商取貨付款）、
+物流（黑貓 + 7-11 賣貨便）、電子發票（B2C 雲端發票 + 載具），給我串接順序與每段要驗證的 callback。
 ```
 
 或：
 
 ```
-ECPay 信用卡退款流程怎麼跑？順便檢查我目前的 CheckMacValue 簽章邏輯
+這筆 Shopline 訂單 ORD-12345 客人說付了錢但平台還是顯示未付款，幫我查 ECPay 那邊的授權結果，
+比對 Shopline 訂單狀態，告訴我是哪邊掉了。
+```
+
+或：
+
+```
+雙 11 還有一個月，幫我規劃檔期：哪些商品適合主推、滿額門檻怎麼設、廣告預算怎麼分
+（蝦皮廣告 + LINE OA broadcast + GA4 追蹤）、ROI 怎麼預估。
 ```
 
 agent 會挑出對應的 `tw-ecom-*` skills 與 MCP tools 來回答。
+
+📖 **完整情境清單**：[`docs/USE-CASES.md`](docs/USE-CASES.md) — 30+ 個常見台灣電商任務情境（開店建置、訂單異常、金流對帳、發票處理、檔期規劃、客服 SOP、合規檢查、分析歸因），每個情境列出 prompt 範例 + 觸發的 skills + MCPs + 注意邊界。
 
 ## 開發
 
