@@ -2,6 +2,8 @@
 
 > **台灣電商總管** — 一個 plugin 把 29 個 `tw-ecom-*` skills 和 12 個 MCP servers 一次塞進你的 coding agent，讓它像有十年台灣電商經驗的營運總管。
 
+**Live demo →** [asgard-ai-platform.github.io/tw-ecommerce-majordomo](https://asgard-ai-platform.github.io/tw-ecommerce-majordomo/) — 看 hero、29 + 12 inventory、6 harness 安裝、完整 use-case 走讀。
+
 [English](README.en.md) (TODO)
 
 支援 **Claude Code**、**Codex CLI / App**、**Cursor**、**Gemini CLI**、**OpenCode**、**Factory Droid**。
