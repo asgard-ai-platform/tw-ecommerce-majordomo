@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#0b1a2b"/>
+  <!-- decorative: storefront awning silhouette, top-right -->
+  <g opacity="0.55">
+    <path d="M850 90 L1140 90 L1100 160 L890 160 Z" fill="#13263d"/>
+    <rect x="890" y="160" width="210" height="270" fill="none" stroke="#13263d" stroke-width="3"/>
+    <rect x="920" y="220" width="60" height="180" fill="#13263d"/>
+    <rect x="1010" y="220" width="60" height="180" fill="#13263d"/>
+  </g>
+  <g font-family="sans-serif">
+    <rect x="80" y="100" width="3" height="24" fill="#c9a961"/>
+    <text x="100" y="118" fill="#c9a961" font-size="16" letter-spacing="4">TW-ECOM MAJORDOMO · 掌櫃</text>
+  </g>
+  <g font-family="serif" fill="#f3e9d2">
+    <text x="80" y="270" font-size="78" font-weight="600"><tspan fill="#c9a961">金物流發票合規</tspan>，</text>
+    <text x="80" y="370" font-size="78" font-weight="600">一手<tspan fill="#c9a961">張羅好</tspan>。</text>
+  </g>
+  <text x="80" y="475" font-family="sans-serif" fill="#a8b3c2" font-size="22">
+    29 tw-ecom-* skills · 12 MCP servers · 支援 6 種 coding agent harness
+  </text>
+  <text x="80" y="530" font-family="sans-serif" fill="#a8b3c2" font-size="22">
+    一個 plugin 把台灣電商串接陷阱替你記在 skill 裡 · powered by Asgard
+  </text>
+</svg>
