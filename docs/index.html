@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="tw-ecommerce-majordomo（台灣電商總管）— 一個 plugin 把 29 個 tw-ecom-* skills 和 12 個 MCP servers 一次塞進你的 coding agent，金物流發票合規一手張羅好。powered by Asgard.">
+  <meta name="author" content="Chris Yuan">
+  <meta property="og:title" content="tw-ecommerce-majordomo · 台灣電商總管 — 金物流發票合規一手張羅好">
+  <meta property="og:description" content="29 個 tw-ecom-* skills · 12 個 MCP servers · 支援 6 種 coding agent harness。powered by Asgard.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://asgard-ai-platform.github.io/tw-ecommerce-majordomo/">
+  <meta property="og:image" content="https://asgard-ai-platform.github.io/tw-ecommerce-majordomo/assets/favicon.svg">
+  <meta property="og:image:alt" content="tw-ecommerce-majordomo · 台灣電商總管 — 金物流發票合規一手張羅好。">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="tw-ecommerce-majordomo · 台灣電商總管 — 金物流發票合規一手張羅好">
+  <meta name="twitter:description" content="29 個 tw-ecom-* skills · 12 個 MCP servers · 支援 6 種 coding agent harness。">
+  <meta name="twitter:image" content="https://asgard-ai-platform.github.io/tw-ecommerce-majordomo/assets/favicon.svg">
+  <title>tw-ecommerce-majordomo · 台灣電商總管 — 金物流發票合規一手張羅好</title>
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="css/tokens.css">
+
+  <!-- Google Fonts with font-display: swap -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap">
+
+  <!-- Tailwind CDN (play mode, supports inline config) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              950: '#060f1a', 900: '#0b1a2b', 800: '#13263d',
+              700: '#1d3555', 300: '#a8b3c2', 100: '#d8dee6',
+            },
+            gold: {
+              600: '#b08840', 500: '#c9a961', 400: '#dcc189', 100: '#f3e9d2',
+            },
+            asgard: {
+              700: '#1d4fbf', 600: '#2563eb', 500: '#3b82f6', 400: '#60a5fa',
+            },
+            cream: '#f7f3eb',
+            paper: '#faf8f3',
+            ink: '#0a0a0a',
+            line: '#223048',
+          },
+          fontFamily: {
+            display: ['"Noto Serif TC"', '"Songti TC"', 'serif'],
+            body: ['"Noto Sans TC"', '-apple-system', 'sans-serif'],
+            mono: ['"JetBrains Mono"', '"SF Mono"', 'monospace'],
+          },
+          maxWidth: {
+            '8xl': '1280px',
+          },
+        },
+      },
+    };
+  </script>
+</head>
+<body class="bg-navy-900 text-gold-100 font-body">
+
+  <!-- NAV -->
+  <nav id="site-nav" class="fixed top-0 inset-x-0 z-50 transition-colors duration-300">
+    <div class="max-w-8xl mx-auto px-6 md:px-10 lg:px-16 h-16 flex items-center justify-between">
+      <a href="#hero" class="flex items-center gap-3 group">
+        <img src="assets/logos/asgard-logo-color.svg" alt="Asgard" class="h-6 w-6">
+        <span class="text-xs tracking-widest text-gold-500 font-medium">TW-ECOM MAJORDOMO · 掌櫃</span>
+      </a>
+      <div class="hidden md:flex items-center gap-8 text-sm">
+        <a href="#use-case" class="text-navy-100 hover:text-gold-500 transition">Use Case</a>
+        <a href="#scenarios" class="text-navy-100 hover:text-gold-500 transition">Scenarios</a>
+        <a href="#inventory" class="text-navy-100 hover:text-gold-500 transition">Skills · MCPs</a>
+        <a href="#install" class="text-navy-100 hover:text-gold-500 transition">Install</a>
+        <a href="https://github.com/asgard-ai-platform/tw-ecommerce-majordomo" target="_blank" rel="noopener"
+           class="text-gold-500 hover:text-gold-400 transition flex items-center gap-1">
+          ★ GitHub →
+        </a>
+      </div>
+      <button id="nav-toggle" class="md:hidden text-gold-500" aria-label="開啟選單" aria-expanded="false">
+        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+    <div id="nav-mobile" class="hidden md:hidden bg-navy-950/95 backdrop-blur border-t border-line">
+      <div class="px-6 py-4 flex flex-col gap-4 text-sm">
+        <a href="#use-case" class="text-navy-100 hover:text-gold-500">Use Case</a>
+        <a href="#scenarios" class="text-navy-100 hover:text-gold-500">Scenarios</a>
+        <a href="#inventory" class="text-navy-100 hover:text-gold-500">Skills · MCPs</a>
+        <a href="#install" class="text-navy-100 hover:text-gold-500">Install</a>
+        <a href="https://github.com/asgard-ai-platform/tw-ecommerce-majordomo" target="_blank" rel="noopener"
+           class="text-gold-500 hover:text-gold-400">★ GitHub →</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero" class="relative min-h-screen flex items-center bg-navy-900 pt-16">
+    <div class="max-w-8xl mx-auto px-6 md:px-10 lg:px-16 py-24 md:py-32 w-full">
+      <div class="mb-10 flex items-center gap-2 reveal">
+        <img src="assets/logos/asgard-icon.svg" alt="" class="h-4 w-4 opacity-80">
+        <span class="text-xs tracking-widest text-gold-500 font-medium">TW-ECOM MAJORDOMO · 掌櫃</span>
+      </div>
+      <h1 class="font-display text-4xl md:text-6xl lg:text-7xl font-semibold leading-tight text-gold-100 reveal">
+        <span class="text-gold-500">金物流發票合規</span>，<br>
+        一手<span class="text-gold-500">張羅好</span>。
+      </h1>
+      <p class="mt-10 max-w-2xl font-display text-lg md:text-xl leading-relaxed text-navy-100 italic reveal">
+        中文裡的「掌櫃」、「總管」是有溫度的詞——<br>
+        指替頭家管事的可靠人。不是雇員、不是執行者，而是把整間店當成自己事業在跑的內部人。
+      </p>
+      <p class="mt-8 max-w-2xl text-base leading-relaxed text-navy-100 reveal">
+        <span class="text-gold-100 font-semibold">tw-ecommerce-majordomo</span> 是為台灣電商打造的 agent plugin。
+        把 <span class="text-asgard-400">29 個 tw-ecom-* skills</span> 與
+        <span class="text-asgard-400">12 個 MCP servers</span> 一次塞進你的 coding agent——
+        金流、物流、發票、合規、客服這些瑣碎卻致命的事，讓它像有十年台灣電商經驗的營運總管。
+      </p>
+      <div class="mt-12 flex flex-col sm:flex-row gap-4 reveal">
+        <a href="#install"
+           class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gold-500 text-navy-900 font-semibold tracking-wide hover:bg-gold-400 transition">
+          立即安裝 <span aria-hidden="true">→</span>
+        </a>
+        <a href="#use-case"
+           class="inline-flex items-center justify-center gap-2 px-8 py-4 border border-asgard-500 text-asgard-400 font-semibold tracking-wide hover:bg-asgard-500/10 transition">
+          看 Use Case 走讀 <span aria-hidden="true">↓</span>
+        </a>
+      </div>
+      <p class="mt-10 text-xs tracking-wider text-navy-300 reveal">
+        MIT License · 繁體中文（台灣） · 支援 Claude Code · Codex · Cursor · Gemini · OpenCode · Factory Droid · powered by Asgard
+      </p>
+    </div>
+  </section>
+
+  <!-- NUMBERS -->
+  <section id="numbers" class="bg-cream text-ink py-24">
+    <div class="max-w-6xl mx-auto px-6 md:px-10 lg:px-16">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
+        <div class="text-center md:text-left reveal">
+          <div class="font-display text-6xl md:text-7xl font-semibold text-gold-600 leading-none">29</div>
+          <div class="mt-3 font-semibold text-ink">tw-ecom-* Skills</div>
+          <div class="mt-1 text-sm text-navy-700">金流 5 · 物流 4 · 發票 4 · DTC 3 · Marketplace 2 · 合規 4 · 營運 4 · 分析 2 · 通路 1</div>
+        </div>
+        <div class="text-center md:text-left reveal">
+          <div class="font-display text-6xl md:text-7xl font-semibold text-gold-600 leading-none">12</div>
+          <div class="mt-3 font-semibold text-ink">MCP Servers</div>
+          <div class="mt-1 text-sm text-navy-700">ECPay · NewebPay · 嘉里 · 新竹 · 順豐 · Shopline · 91APP · ezPay · Universal-EC ...</div>
+        </div>
+        <div class="text-center md:text-left reveal">
+          <div class="font-display text-6xl md:text-7xl font-semibold text-gold-600 leading-none">6</div>
+          <div class="mt-3 font-semibold text-ink">Coding Agent Harness</div>
+          <div class="mt-1 text-sm text-navy-700">Claude Code · Codex · Cursor · Gemini CLI · OpenCode · Factory Droid</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAIN → SOLUTION -->
+  <section id="pain-solution" class="bg-navy-800 text-gold-100 py-24">
+    <div class="max-w-6xl mx-auto px-6 md:px-10 lg:px-16">
+      <div class="max-w-3xl mb-16 reveal">
+        <div class="text-xs tracking-widest text-gold-500 font-medium mb-4">每一檔店的日常</div>
+        <h2 class="font-display text-3xl md:text-5xl font-semibold text-gold-100 leading-tight">
+          台灣電商的四個致命陷阱，<br>
+          majordomo 怎麼接。
+        </h2>
+      </div>
+      <div class="space-y-6">
+        <!-- Pair 1 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch reveal">
+          <div class="p-8 bg-navy-900 border-l-2 border-navy-300">
+            <div class="text-xs tracking-wider text-navy-300 mb-3">痛點</div>
+            <p class="text-lg leading-relaxed text-gold-100">客人說付了錢，但訂單顯示未付款。是 callback 沒驗章、重複觸發、還是 Shopline 沒同步？</p>
+          </div>
+          <div class="p-8 bg-navy-900 border-l-2 border-gold-500">
+            <div class="text-xs tracking-wider text-gold-500 mb-3">majordomo 怎麼接</div>
+            <p class="text-lg leading-relaxed text-gold-100">
+              <span class="font-mono text-asgard-400">tw-ecom-payment-ecpay</span> 封裝 CheckMacValue 驗章，配 <span class="font-mono text-asgard-400">ecpay</span> MCP 查授權結果，三邊對齊一鍵。
+            </p>
+          </div>
+        </div>
+        <!-- Pair 2 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch reveal">
+          <div class="p-8 bg-navy-900 border-l-2 border-navy-300">
+            <div class="text-xs tracking-wider text-navy-300 mb-3">痛點</div>
+            <p class="text-lg leading-relaxed text-gold-100">訂單成立就開發票，退貨潮一來，每天都在作廢、跨期還變折讓單。</p>
+          </div>
+          <div class="p-8 bg-navy-900 border-l-2 border-gold-500">
+            <div class="text-xs tracking-wider text-gold-500 mb-3">majordomo 怎麼接</div>
+            <p class="text-lg leading-relaxed text-gold-100">
+              <span class="font-mono text-asgard-400">tw-ecom-invoice-ezpay</span> + <span class="font-mono text-asgard-400">tw-ecom-invoice-void</span> 把財政部「出貨後 48 小時內」與跨期作廢/折讓判斷邏輯寫好。
+            </p>
+          </div>
+        </div>
+        <!-- Pair 3 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch reveal">
+          <div class="p-8 bg-navy-900 border-l-2 border-navy-300">
+            <div class="text-xs tracking-wider text-navy-300 mb-3">痛點</div>
+            <p class="text-lg leading-relaxed text-gold-100">超商取貨付款 COD 對帳對不上，物流取件成功的、金流入帳的、訂單狀態三邊永遠差幾筆。</p>
+          </div>
+          <div class="p-8 bg-navy-900 border-l-2 border-gold-500">
+            <div class="text-xs tracking-wider text-gold-500 mb-3">majordomo 怎麼接</div>
+            <p class="text-lg leading-relaxed text-gold-100">
+              <span class="font-mono text-asgard-400">ecpay</span> + <span class="font-mono text-asgard-400">ecpay-logistics</span> MCP 配 <span class="font-mono text-asgard-400">tw-ecom-payment-ecpay</span>，三邊比對含 T+N 結算缺口。
+            </p>
+          </div>
+        </div>
+        <!-- Pair 4 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch reveal">
+          <div class="p-8 bg-navy-900 border-l-2 border-navy-300">
+            <div class="text-xs tracking-wider text-navy-300 mb-3">痛點</div>
+            <p class="text-lg leading-relaxed text-gold-100">雙 11 前一個月才開始想：選哪些品、滿額怎麼設、廣告分蝦皮還是 LINE OA。</p>
+          </div>
+          <div class="p-8 bg-navy-900 border-l-2 border-gold-500">
+            <div class="text-xs tracking-wider text-gold-500 mb-3">majordomo 怎麼接</div>
+            <p class="text-lg leading-relaxed text-gold-100">
+              <span class="font-mono text-asgard-400">tw-ecom-operations-promotion</span> + <span class="font-mono text-asgard-400">tw-ecom-analytics-benchmarks</span> 把選品、ROI 預估、檔期通路規則一次跑完。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- USE CASE WALKTHROUGH -->
+  <section id="use-case" class="bg-navy-900 text-gold-100 py-24 md:py-32">
+    <div class="max-w-6xl mx-auto px-6 md:px-10 lg:px-16">
+      <div class="max-w-3xl mb-16 reveal">
+        <div class="text-xs tracking-widest text-gold-500 font-medium mb-4">主示範</div>
+        <h2 class="font-display text-3xl md:text-5xl font-semibold text-gold-100 leading-tight">
+          兩個鐘頭走讀：<br>從盤點需求到上線前 checklist。
+        </h2>
+        <p class="mt-6 text-navy-100 leading-relaxed" id="case-summary"></p>
+      </div>
+      <div id="case-steps" class="space-y-2"></div>
+      <p class="mt-16 text-center text-lg text-gold-400 italic max-w-2xl mx-auto reveal" id="case-closing"></p>
+    </div>
+  </section>
+
+  <!-- OTHER SCENARIOS -->
+  <section id="scenarios" class="bg-cream text-ink py-24">
+    <div class="max-w-6xl mx-auto px-6 md:px-10 lg:px-16">
+      <div class="max-w-3xl mb-12 reveal">
+        <div class="text-xs tracking-widest text-gold-600 font-medium mb-4">其他高頻情境</div>
+        <h2 class="font-display text-3xl md:text-5xl font-semibold text-ink leading-tight">
+          不是開新店？<br>30+ 種情境都有 playbook。
+        </h2>
+        <p class="mt-4 text-sm text-navy-700">節錄五個最常被問的——完整情境清單見 <a href="https://github.com/asgard-ai-platform/tw-ecommerce-majordomo/blob/main/docs/USE-CASES.md" target="_blank" rel="noopener" class="text-asgard-600 hover:text-asgard-700 underline">docs/USE-CASES.md</a>。</p>
+      </div>
+      <!-- Tab headers -->
+      <div class="border-b border-navy-300 mb-8">
+        <div class="flex gap-1 overflow-x-auto -mb-px" role="tablist">
+          <button data-sc="order" class="whitespace-nowrap px-4 py-3 text-sm font-semibold border-b-2 border-gold-500 text-navy-900" role="tab" aria-selected="true">訂單異常 triage</button>
+          <button data-sc="refund" class="whitespace-nowrap px-4 py-3 text-sm font-semibold border-b-2 border-transparent text-navy-700 hover:text-navy-900" role="tab" aria-selected="false">退貨退款發票</button>
+          <button data-sc="11.11" class="whitespace-nowrap px-4 py-3 text-sm font-semibold border-b-2 border-transparent text-navy-700 hover:text-navy-900" role="tab" aria-selected="false">雙 11 檔期規劃</button>
+          <button data-sc="cs" class="whitespace-nowrap px-4 py-3 text-sm font-semibold border-b-2 border-transparent text-navy-700 hover:text-navy-900" role="tab" aria-selected="false">客服回覆草稿</button>
+          <button data-sc="pdpa" class="whitespace-nowrap px-4 py-3 text-sm font-semibold border-b-2 border-transparent text-navy-700 hover:text-navy-900" role="tab" aria-selected="false">PDPA DSAR</button>
+        </div>
+      </div>
+      <div id="sc-panels"></div>
+    </div>
+  </section>
+
+  <!-- SKILLS + MCPS INVENTORY -->
+  <section id="inventory" class="bg-paper text-ink py-24">
+    <div class="max-w-6xl mx-auto px-6 md:px-10 lg:px-16">
+      <div class="max-w-3xl mb-10 reveal">
+        <div class="text-xs tracking-widest text-gold-600 font-medium mb-4">29 Skills · 12 MCPs</div>
+        <h2 class="font-display text-3xl md:text-5xl font-semibold text-ink leading-tight">
+          全套 inventory。<br>按領域過濾。
+        </h2>
+      </div>
+      <!-- Filter bar -->
+      <div class="flex flex-wrap gap-2 mb-8" id="inv-filter">
+        <button data-cat="all" class="px-4 py-2 text-sm font-semibold bg-navy-900 text-gold-100 border border-navy-900">全部</button>
+        <button data-cat="payment" class="px-4 py-2 text-sm font-semibold bg-transparent text-navy-700 border border-navy-300 hover:border-navy-900">金流</button>
+        <button data-cat="logistics" class="px-4 py-2 text-sm font-semibold bg-transparent text-navy-700 border border-navy-300 hover:border-navy-900">物流</button>
+        <button data-cat="invoice" class="px-4 py-2 text-sm font-semibold bg-transparent text-navy-700 border border-navy-300 hover:border-navy-900">發票</button>
+        <button data-cat="dtc" class="px-4 py-2 text-sm font-semibold bg-transparent text-navy-700 border border-navy-300 hover:border-navy-900">DTC</button>
+        <button data-cat="marketplace" class="px-4 py-2 text-sm font-semibold bg-transparent text-navy-700 border border-navy-300 hover:border-navy-900">Marketplace</button>
+        <button data-cat="compliance" class="px-4 py-2 text-sm font-semibold bg-transparent text-navy-700 border border-navy-300 hover:border-navy-900">合規</button>
+        <button data-cat="operations" class="px-4 py-2 text-sm font-semibold bg-transparent text-navy-700 border border-navy-300 hover:border-navy-900">營運</button>
+        <button data-cat="analytics" class="px-4 py-2 text-sm font-semibold bg-transparent text-navy-700 border border-navy-300 hover:border-navy-900">分析</button>
+        <button data-cat="mcp" class="px-4 py-2 text-sm font-semibold bg-transparent text-navy-700 border border-navy-300 hover:border-navy-900">MCP</button>
+      </div>
+      <div id="inv-cards" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+    </div>
+  </section>
+
+  <!-- ASGARD ECOSYSTEM -->
+  <section id="ecosystem" class="bg-navy-900 text-gold-100 py-24">
+    <div class="max-w-6xl mx-auto px-6 md:px-10 lg:px-16">
+      <div class="max-w-3xl mb-12 reveal">
+        <div class="text-xs tracking-widest text-gold-500 font-medium mb-4">你不是一個人</div>
+        <h2 class="font-display text-3xl md:text-5xl font-semibold text-gold-100 leading-tight">
+          majordomo 背後，<br>是 Asgard 的 293 個 skill 主庫。
+        </h2>
+      </div>
+
+      <!-- Desktop SVG -->
+      <div class="hidden md:block reveal">
+        <svg viewBox="0 0 800 480" class="w-full max-w-3xl mx-auto" role="img" aria-labelledby="eco-title">
+          <title id="eco-title">Asgard 主庫 → tw-ecommerce-majordomo → 台灣電商頭家 三層生態關係</title>
+          <!-- Top layer: Asgard -->
+          <g>
+            <rect x="100" y="40" width="600" height="100" fill="#13263d" stroke="#2563eb" stroke-width="2"/>
+            <text x="400" y="75" text-anchor="middle" fill="#60a5fa" font-family="Noto Sans TC, sans-serif" font-size="12" letter-spacing="2">ASGARD AI PLATFORM</text>
+            <text x="400" y="105" text-anchor="middle" fill="#f3e9d2" font-family="Noto Serif TC, serif" font-size="20" font-weight="600">293 個 coding agent skill 主庫</text>
+            <text x="400" y="125" text-anchor="middle" fill="#a8b3c2" font-family="Noto Sans TC, sans-serif" font-size="11">商管 · 開發 · 研究 · 數據 · 在地化</text>
+          </g>
+          <!-- Arrow 1 -->
+          <g>
+            <line x1="400" y1="155" x2="400" y2="195" stroke="#c9a961" stroke-width="1.5"/>
+            <polygon points="400,200 393,188 407,188" fill="#c9a961"/>
+            <text x="415" y="180" fill="#c9a961" font-family="Noto Sans TC, sans-serif" font-size="11">挑出 29 個 tw-ecom-*</text>
+          </g>
+          <!-- Middle layer: Majordomo -->
+          <g>
+            <rect x="160" y="210" width="480" height="90" fill="#1d3555" stroke="#c9a961" stroke-width="2"/>
+            <text x="400" y="240" text-anchor="middle" fill="#c9a961" font-family="Noto Sans TC, sans-serif" font-size="12" letter-spacing="2">TW-ECOMMERCE-MAJORDOMO · 掌櫃</text>
+            <text x="400" y="268" text-anchor="middle" fill="#f3e9d2" font-family="Noto Serif TC, serif" font-size="18" font-weight="600">29 skills + 12 MCP servers</text>
+            <text x="400" y="286" text-anchor="middle" fill="#a8b3c2" font-family="Noto Sans TC, sans-serif" font-size="11">金 · 物 · 發票 · 合規 · 客服 · 分析 一手張羅</text>
+          </g>
+          <!-- Arrow 2 -->
+          <g>
+            <line x1="400" y1="315" x2="400" y2="355" stroke="#c9a961" stroke-width="1.5"/>
+            <polygon points="400,360 393,348 407,348" fill="#c9a961"/>
+            <text x="415" y="340" fill="#c9a961" font-family="Noto Sans TC, sans-serif" font-size="11">替你跑串接</text>
+          </g>
+          <!-- Bottom layer: Owner -->
+          <g>
+            <rect x="290" y="370" width="220" height="80" fill="#0b1a2b" stroke="#c9a961" stroke-width="2"/>
+            <circle cx="400" cy="400" r="14" fill="#c9a961"/>
+            <text x="400" y="430" text-anchor="middle" fill="#f3e9d2" font-family="Noto Sans TC, sans-serif" font-size="13">你 · 台灣電商頭家</text>
+          </g>
+        </svg>
+      </div>
+
+      <!-- Mobile text stack -->
+      <div class="md:hidden space-y-4 reveal">
+        <div class="p-6 bg-navy-800 border border-asgard-500">
+          <div class="text-xs tracking-widest text-asgard-400 mb-2">ASGARD AI PLATFORM</div>
+          <div class="font-display text-lg font-semibold text-gold-100">293 個 coding agent skill 主庫</div>
+          <div class="text-xs text-navy-300 mt-1">商管 · 開發 · 研究 · 數據 · 在地化</div>
+        </div>
+        <div class="text-center text-gold-500 text-sm">↑ 挑出 29 個 tw-ecom-*</div>
+        <div class="p-6 bg-navy-700 border border-gold-500">
+          <div class="text-xs tracking-widest text-gold-500 mb-2">TW-ECOMMERCE-MAJORDOMO · 掌櫃</div>
+          <div class="font-display text-lg font-semibold text-gold-100">29 skills + 12 MCP servers</div>
+          <div class="text-xs text-navy-300 mt-1">金 · 物 · 發票 · 合規 · 客服 · 分析</div>
+        </div>
+        <div class="text-center text-gold-500 text-sm">↑ 替你跑串接</div>
+        <div class="p-6 bg-navy-900 border border-gold-500 text-center">
+          <div class="font-display text-lg text-gold-100">你 · 台灣電商頭家</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTALL -->
+  <section id="install" class="bg-cream text-ink py-24">
+    <div class="max-w-5xl mx-auto px-6 md:px-10 lg:px-16">
+      <div class="max-w-3xl mb-12 reveal">
+        <div class="text-xs tracking-widest text-gold-600 font-medium mb-4">立即安裝</div>
+        <h2 class="font-display text-3xl md:text-5xl font-semibold text-ink leading-tight">
+          六個 harness 都支援，<br>挑你慣用的貼進去。
+        </h2>
+        <p class="mt-4 text-sm text-navy-700">前置需求：<a href="https://docs.astral.sh/uv/" target="_blank" rel="noopener" class="text-asgard-600 hover:text-asgard-700 underline"><code class="font-mono">uv</code></a>（MCP servers 透過 <code class="font-mono">uvx</code> 啟動）。MCP 憑證請看 <a href="https://github.com/asgard-ai-platform/tw-ecommerce-majordomo/blob/main/docs/MCP-SETUP.md" target="_blank" rel="noopener" class="text-asgard-600 hover:text-asgard-700 underline">docs/MCP-SETUP.md</a>。</p>
+      </div>
+
+      <div class="border-b border-navy-300 mb-8">
+        <div class="flex gap-1 overflow-x-auto -mb-px" role="tablist">
+          <button data-inst="claude" class="whitespace-nowrap px-4 py-3 text-sm font-semibold border-b-2 border-gold-500 text-navy-900" role="tab" aria-selected="true">Claude Code</button>
+          <button data-inst="codex" class="whitespace-nowrap px-4 py-3 text-sm font-semibold border-b-2 border-transparent text-navy-700 hover:text-navy-900" role="tab" aria-selected="false">Codex</button>
+          <button data-inst="cursor" class="whitespace-nowrap px-4 py-3 text-sm font-semibold border-b-2 border-transparent text-navy-700 hover:text-navy-900" role="tab" aria-selected="false">Cursor</button>
+          <button data-inst="gemini" class="whitespace-nowrap px-4 py-3 text-sm font-semibold border-b-2 border-transparent text-navy-700 hover:text-navy-900" role="tab" aria-selected="false">Gemini CLI</button>
+          <button data-inst="opencode" class="whitespace-nowrap px-4 py-3 text-sm font-semibold border-b-2 border-transparent text-navy-700 hover:text-navy-900" role="tab" aria-selected="false">OpenCode</button>
+          <button data-inst="droid" class="whitespace-nowrap px-4 py-3 text-sm font-semibold border-b-2 border-transparent text-navy-700 hover:text-navy-900" role="tab" aria-selected="false">Factory Droid</button>
+        </div>
+      </div>
+
+      <div id="install-panels"></div>
+    </div>
+  </section>
+
+  <!-- SKILL COMPLETENESS DISCLOSURE -->
+  <section id="completeness" class="bg-navy-800 text-gold-100 py-24">
+    <div class="max-w-5xl mx-auto px-6 md:px-10 lg:px-16">
+      <div class="max-w-3xl mb-12 reveal">
+        <div class="text-xs tracking-widest text-gold-500 font-medium mb-4">誠實的邊界</div>
+        <h2 class="font-display text-3xl md:text-5xl font-semibold text-gold-100 leading-tight">
+          能做到什麼，<br>還沒做到什麼。
+        </h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 reveal">
+        <!-- Can do -->
+        <div class="p-8 bg-navy-900 border-t-2 border-gold-500">
+          <div class="text-xs tracking-wider text-gold-500 mb-4">已完整 (SOP 全寫好)</div>
+          <ul class="space-y-3 text-sm leading-relaxed">
+            <li class="flex gap-3"><span class="text-gold-500 shrink-0">✓</span><span><span class="font-mono">tw-ecom-dtc-shopline</span> — Shopline 完整串接</span></li>
+            <li class="flex gap-3"><span class="text-gold-500 shrink-0">✓</span><span><span class="font-mono">tw-ecom-invoice-ezpay</span> — 雲端發票全流程</span></li>
+            <li class="flex gap-3"><span class="text-gold-500 shrink-0">✓</span><span><span class="font-mono">tw-ecom-payment-newebpay</span> — NDNF + NDNP</span></li>
+            <li class="flex gap-3"><span class="text-gold-500 shrink-0">✓</span><span>全部 12 個 MCP servers 可用</span></li>
+            <li class="flex gap-3"><span class="text-gold-500 shrink-0">✓</span><span>30+ use case 觸發路徑 (USE-CASES.md)</span></li>
+          </ul>
+        </div>
+        <!-- WIP -->
+        <div class="p-8 bg-navy-900 border-t-2 border-navy-300">
+          <div class="text-xs tracking-wider text-navy-300 mb-4">尚為 skeleton (description 與觸發已備，SOP 補齊中)</div>
+          <ul class="space-y-3 text-sm leading-relaxed">
+            <li class="flex gap-3"><span class="text-navy-300 shrink-0">◦</span><span>另外 26 個 skill — description + when-to-use 已有，完整 step-by-step body 陸續補齊</span></li>
+            <li class="flex gap-3"><span class="text-navy-300 shrink-0">◦</span><span>遇 skeleton skill 時，agent 仍能依 description 範圍與 MCP 工具回答</span></li>
+            <li class="flex gap-3"><span class="text-navy-300 shrink-0">◦</span><span>不保證每個情境都能跑出完整可執行 playbook</span></li>
+            <li class="flex gap-3"><span class="text-navy-300 shrink-0">◦</span><span>各 skill 當前完整度看 <code class="font-mono text-xs">skills/&lt;name&gt;/SKILL.md</code></span></li>
+          </ul>
+        </div>
+      </div>
+      <p class="mt-16 text-center font-display text-xl md:text-2xl text-gold-500 font-semibold reveal">
+        把能力地圖與當前完整度攤開——這是 majordomo 對頭家的誠實。
+      </p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="site-footer" class="bg-navy-950 text-navy-300 py-16">
+    <div class="max-w-6xl mx-auto px-6 md:px-10 lg:px-16">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div>
+          <div class="flex items-center gap-2 mb-4">
+            <img src="assets/logos/asgard-logo-color.svg" alt="Asgard" class="h-5 w-5 opacity-80">
+            <span class="text-xs tracking-widest text-gold-500 font-medium">TW-ECOM MAJORDOMO · 掌櫃</span>
+          </div>
+          <p class="text-sm leading-relaxed">
+            一個 plugin 把 29 個 tw-ecom-* skills<br>
+            和 12 個 MCP servers 一次塞進你的<br>
+            coding agent。powered by Asgard.
+          </p>
+        </div>
+        <div>
+          <div class="text-xs tracking-wider text-gold-500 mb-4">連結</div>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://github.com/asgard-ai-platform/tw-ecommerce-majordomo" target="_blank" rel="noopener" class="hover:text-gold-500 transition">GitHub Repository</a></li>
+            <li><a href="https://github.com/asgard-ai-platform/tw-ecommerce-majordomo/blob/main/docs/USE-CASES.md" target="_blank" rel="noopener" class="hover:text-gold-500 transition">完整 Use Cases</a></li>
+            <li><a href="https://github.com/asgard-ai-platform/tw-ecommerce-majordomo/blob/main/docs/MCP-SETUP.md" target="_blank" rel="noopener" class="hover:text-gold-500 transition">MCP 設定對照</a></li>
+            <li><a href="https://github.com/asgard-ai-platform/tw-ecommerce-majordomo/issues" target="_blank" rel="noopener" class="hover:text-gold-500 transition">Issue 回報</a></li>
+            <li><a href="https://github.com/asgard-ai-platform/skills" target="_blank" rel="noopener" class="hover:text-gold-500 transition">Asgard 上游 Skills 主庫</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="text-xs tracking-wider text-gold-500 mb-4">命名由來</div>
+          <p class="text-sm leading-relaxed">
+            <span class="text-gold-100">Majordomo</span> 從拉丁文 <em>majordomus</em>（家中之首）來，<br>
+            原指中世紀貴族府邸或皇室的總管。<br>
+            <span class="text-navy-100">對應中文的「掌櫃」、「總管」——替頭家統管全部事務的內部人。</span>
+          </p>
+        </div>
+      </div>
+      <div class="mt-12 pt-8 border-t border-line flex flex-col md:flex-row gap-4 md:items-center md:justify-between text-xs">
+        <div>Built by <a href="https://github.com/shyuan" target="_blank" rel="noopener" class="text-gold-500 hover:text-gold-400">Chris Yuan</a> · MIT License · 繁體中文（台灣）</div>
+        <div>© 2026 Asgard AI Platform</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/use-case-data.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" fill="#0b1a2b"/>
+  <!-- Storefront awning -->
+  <path d="M10 22 L54 22 L48 32 L16 32 Z" fill="#c9a961"/>
+  <path d="M16 32 L48 32 L48 52 L16 52 Z" fill="none" stroke="#dcc189" stroke-width="2"/>
+  <!-- Storefront window/door -->
+  <rect x="22" y="38" width="8" height="14" fill="#dcc189" opacity="0.55"/>
+  <rect x="34" y="38" width="8" height="14" fill="#dcc189" opacity="0.55"/>
+  <!-- Top accent / 掌 hook -->
+  <path d="M28 12 L36 12 L32 20 Z" fill="#c9a961" opacity="0.7"/>
+</svg>
