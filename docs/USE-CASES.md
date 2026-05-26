@@ -97,11 +97,11 @@
 通路要選 Shopify 還是 Shopline、金流物流發票要怎麼接。
 ```
 
-**會用到的 skills：** `tw-ecom-compliance-cross-border`、`tw-ecom-channel-strategy`、`tw-ecom-dtc-shopify-localization`、`tw-ecom-payment-ecpay`、`tw-ecom-logistics-cvs`、`tw-ecom-invoice-ezpay`
+**會用到的 skills：** `tw-ecom-compliance-cross-border`、`tw-ecom-channel-strategy`、`tw-ecom-dtc-shopify-localization`、`tw-ecom-logistics-cross-border`、`tw-ecom-payment-ecpay`、`tw-ecom-logistics-cvs`、`tw-ecom-invoice-ezpay`
 
 **會用到的 MCPs：** 視選型而定（`ecpay`、`ezpay-einvoice` 為主）
 
-**注意：** 境外電商若年銷售額超過門檻必須在台辦理稅籍登記（境外電商銷售勞務）；發票必須開台灣電子發票，不是當地發票。Shopify 在台需要透過 ECPay / NewebPay app 接金流。
+**注意：** 境外電商若年銷售額超過門檻必須在台辦理稅籍登記（境外電商銷售勞務）；發票必須開台灣電子發票，不是當地發票。Shopify 在台需要透過 ECPay / NewebPay app 接金流。境外出貨到台灣段（DHL / FedEx / UPS / 郵局國際）的承運商選擇、報關、DDP vs DDU 條款由 `tw-ecom-logistics-cross-border` 處理。
 
 ---
 
