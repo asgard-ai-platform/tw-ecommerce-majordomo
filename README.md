@@ -4,7 +4,7 @@
 
 **Live demo →** [asgard-ai-platform.github.io/tw-ecommerce-majordomo](https://asgard-ai-platform.github.io/tw-ecommerce-majordomo/) — 看 hero、29 + 12 inventory、6 harness 安裝、完整 use-case 走讀。
 
-[English](README.en.md) (TODO)
+[English](README.en.md)
 
 支援 **Claude Code**、**Codex CLI / App**、**Cursor**、**Gemini CLI**、**OpenCode**、**Factory Droid**。
 
