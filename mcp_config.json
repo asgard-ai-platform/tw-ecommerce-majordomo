@@ -1,8 +1,4 @@
 {
-  "name": "tw-ecommerce-majordomo",
-  "version": "0.1.0",
-  "description": "台灣電商總管：29 個 tw-ecom-* skills + 12 個 MCP servers。",
-  "contextFileName": "GEMINI.md",
   "mcpServers": {
     "ecpay": {
       "command": "uvx",

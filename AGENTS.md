@@ -63,3 +63,18 @@ the skill's own `description` frontmatter to decide when to reach for it.
 If MCPs aren't responding, ask the user to confirm `.env.example` has been
 filled in (copy at repo root) and `uv` is installed (the MCP servers run via
 `uvx`). Full env var reference: `docs/MCP-SETUP.md`.
+
+## Maintenance note (for agents editing this repo)
+
+This repo distributes the same plugin to multiple agent tools, with the
+**`mcpServers` block declared in 5 places**:
+
+- `mcp_config.json` — Antigravity (agy)
+- `.claude-plugin/plugin.json` — Claude Code
+- `.codex-plugin/plugin.json` — Codex CLI / App
+- `.cursor-plugin/plugin.json` — Cursor
+- `mcp.json` — canonical reference for manual Cursor / Codex / OpenCode setup
+
+When adding, renaming, or changing env vars on any MCP server, update **all
+five** files in the same commit. There is currently no automated check —
+silent drift here means one harness works while another breaks.

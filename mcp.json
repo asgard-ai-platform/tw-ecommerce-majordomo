@@ -1,5 +1,5 @@
 {
-  "_comment": "Canonical MCP server spec for the 12 Taiwan e-commerce MCPs in this plugin. Used by Claude Code / Gemini directly via plugin manifests; copy-paste into ~/.cursor/mcp.json, ~/.codex/mcp.json, or your harness-specific MCP config to enable manually. Requires `uv` installed (https://docs.astral.sh/uv/) for `uvx` to work.",
+  "_comment": "Canonical MCP server spec for the 12 Taiwan e-commerce MCPs in this plugin. Plugin manifests (`.claude-plugin/`, `.codex-plugin/`, `.cursor-plugin/plugin.json` and Antigravity's `mcp_config.json`) already declare these servers inline; this file is the copy-paste reference for manual setup in `~/.cursor/mcp.json`, `~/.codex/mcp.json`, or any harness-specific MCP config. Requires `uv` installed (https://docs.astral.sh/uv/) for `uvx` to work.",
   "mcpServers": {
     "ecpay": {
       "command": "uvx",

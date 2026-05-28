@@ -112,7 +112,7 @@ uvx --version
 
 ## 在不同 harness 註冊 MCP
 
-### Claude Code / Gemini CLI
+### Claude Code / Antigravity CLI (agy)
 
 不需手動設定 — plugin manifest 已內含 `mcpServers`，安裝 plugin 後 harness 會自動拉起。
 
