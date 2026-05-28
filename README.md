@@ -6,7 +6,7 @@
 
 [English](README.en.md)
 
-支援 **Claude Code**、**Codex CLI / App**、**Cursor**、**Gemini CLI**、**OpenCode**、**Factory Droid**。
+支援 **Claude Code**、**Codex CLI / App**、**Cursor**、**Antigravity CLI (agy)**、**OpenCode**、**Factory Droid**。
 
 ## 為什麼叫 majordomo？
 
@@ -37,7 +37,7 @@
 
 ## 前置需求
 
-- 對應的 agent harness（Claude Code / Codex / Cursor / Gemini CLI / OpenCode / Factory Droid 擇一以上）
+- 對應的 agent harness（Claude Code / Codex / Cursor / Antigravity CLI (agy) / OpenCode / Factory Droid 擇一以上）
 - [`uv`](https://docs.astral.sh/uv/)（MCP servers 透過 `uvx` 啟動）
 
   ```bash
@@ -75,10 +75,11 @@ cursor plugin add asgard-ai-platform/tw-ecommerce-majordomo
 
 > Cursor plugin 目前不會自動註冊 MCP servers — 把 [`mcp.json`](mcp.json) 的 `mcpServers` 區塊複製進 `~/.cursor/mcp.json`，或在 Cursor Settings → MCP 中加入。
 
-### Gemini CLI
+### Antigravity CLI (agy)
 
 ```bash
-gemini extensions install asgard-ai-platform/tw-ecommerce-majordomo
+git clone https://github.com/asgard-ai-platform/tw-ecommerce-majordomo \
+  .agents/plugins/tw-ecommerce-majordomo
 ```
 
 ### OpenCode

@@ -25,3 +25,6 @@ venv/
 .cache/
 dist/
 build/
+
+# Antigravity CLI runtime state
+.antigravitycli/

@@ -6,7 +6,7 @@
 
 [繁體中文](README.md)
 
-Supports **Claude Code**, **Codex CLI / App**, **Cursor**, **Gemini CLI**, **OpenCode**, and **Factory Droid**.
+Supports **Claude Code**, **Codex CLI / App**, **Cursor**, **Antigravity CLI (agy)**, **OpenCode**, and **Factory Droid**.
 
 ## Why "majordomo"?
 
@@ -37,7 +37,7 @@ What majordomo is to a shop owner, this plugin tries to be to your coding agent:
 
 ## Prerequisites
 
-- A supported agent harness (Claude Code / Codex / Cursor / Gemini CLI / OpenCode / Factory Droid — pick one or more)
+- A supported agent harness (Claude Code / Codex / Cursor / Antigravity CLI (agy) / OpenCode / Factory Droid — pick one or more)
 - [`uv`](https://docs.astral.sh/uv/) — MCP servers launch via `uvx`
 
   ```bash
@@ -75,10 +75,11 @@ cursor plugin add asgard-ai-platform/tw-ecommerce-majordomo
 
 > Cursor's plugin system doesn't auto-register MCP servers yet — copy the `mcpServers` block from [`mcp.json`](mcp.json) into `~/.cursor/mcp.json`, or add it via Cursor Settings → MCP.
 
-### Gemini CLI
+### Antigravity CLI (agy)
 
 ```bash
-gemini extensions install asgard-ai-platform/tw-ecommerce-majordomo
+git clone https://github.com/asgard-ai-platform/tw-ecommerce-majordomo \
+  .agents/plugins/tw-ecommerce-majordomo
 ```
 
 ### OpenCode
